@@ -1,19 +1,17 @@
+import pandas as pd
 import os
+import csv
 
-folderNames = [
-"pg 3 - ow pronunciation",
-"pg 4 - ow reading",
-"pg 7 - ou pronunciation",
-"pg 8 - ou reading",
-"pg 15 - ar pronunciation",
-"pg 16 - ar reading",
-"pg 21 - ae pronunciation",
-"pg 22 - ae reading",
-"pg 25 - ie pronunciation",
-"pg 26 - ie reading",
-"pg 33 - oe ue pronunciation",
-"pg 34 - oe ue reading",
-]
+df = pd.read_csv('input.csv')
+folderNames = df['folder_name']
+
+want_serialise = input("Do you want your folders to be numbered? Press 0 for no, press 1 for yes.") # True if want all folders to be numbered.
+counter = 1
 
 for name in folderNames:
+	if int(want_serialise)==1:
+		name = str(counter) + ". " + name
+		counter += 1
 	os.mkdir(name)
+
+print("Success! All hail lord Fendy")
