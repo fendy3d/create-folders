@@ -9,6 +9,7 @@ want_serialise = input("Do you want your folders to be numbered? Press 0 for no,
 counter = 1
 
 for name in folderNames:
+	name = str(name)
 	if int(want_serialise)==1:
 		name = str(counter) + ". " + name
 		counter += 1
